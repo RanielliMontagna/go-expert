@@ -9,6 +9,10 @@ type Address struct {
 	State  string
 }
 
+type Person interface {
+	Inactive()
+}
+
 type Client struct {
 	Name    string
 	Age     int
@@ -16,8 +20,19 @@ type Client struct {
 	Address Address
 }
 
-func (c *Client) InactiveClient() {
+type Company struct {
+	Name string
+}
+
+func (c *Company) Inactive() {
+}
+
+func (c *Client) Inactive() {
 	c.Active = false
+}
+
+func Desactivate(p Person) {
+	p.Inactive()
 }
 
 func main() {
@@ -26,8 +41,12 @@ func main() {
 		Age:    25,
 		Active: true,
 	}
+	myCompany := Company{
+		Name: "My Company",
+	}
 
-	ranni.InactiveClient()
+	Desactivate(&ranni)
+	Desactivate(&myCompany)
 
 	fmt.Printf("Name: %s, Age: %d, Active: %t\n", ranni.Name, ranni.Age, ranni.Active)
 }
