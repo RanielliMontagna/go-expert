@@ -71,5 +71,4 @@ func main() {
 			fmt.Printf("-- Product: %s, Serial Number: %s\n", product.Name, product.SerialNumber.Number)
 		}
 	}
-
 }
