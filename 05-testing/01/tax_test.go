@@ -31,6 +31,7 @@ func TestCalculateTaxBatch(t *testing.T) {
 		amount   float64
 		expected float64
 	}{
+		{0.0, 0.0},
 		{500.0, 5.0},
 		{1000.0, 10.0},
 	}
@@ -43,5 +44,17 @@ func TestCalculateTaxBatch(t *testing.T) {
 				t.Errorf("CalculateTax(%f) = %f; want %f", tt.amount, result, tt.expected)
 			}
 		})
+	}
+}
+
+func BenchmarkCalculateTax(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		CalculateTax(1000.0)
+	}
+}
+
+func BenchmarkCalculateTax2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		CalculateTax2(1000.0)
 	}
 }
