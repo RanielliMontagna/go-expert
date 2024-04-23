@@ -18,9 +18,9 @@ type conf struct {
 	TokenAuth     *jwtauth.JWTAuth
 }
 
-var cfg *conf
-
 func LoadConfig(path string) (*conf, error) {
+	cfg := &conf{}
+
 	viper.SetConfigName("config")
 	viper.SetConfigType("env")
 	viper.AddConfigPath(path)
