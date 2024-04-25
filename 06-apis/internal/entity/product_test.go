@@ -9,7 +9,7 @@ import (
 func TestNewProduct(t *testing.T) {
 	t.Run("create new product", func(t *testing.T) {
 		name := "product"
-		price := 1000
+		price := 1000.0
 
 		p, err := NewProduct(name, price)
 
@@ -22,7 +22,7 @@ func TestNewProduct(t *testing.T) {
 
 	t.Run("create new product when name is empty", func(t *testing.T) {
 		name := ""
-		price := 1000
+		price := 1000.0
 
 		p, err := NewProduct(name, price)
 
@@ -32,7 +32,7 @@ func TestNewProduct(t *testing.T) {
 
 	t.Run("create new product when price is 0", func(t *testing.T) {
 		name := "product"
-		price := 0
+		price := 0.0
 
 		p, err := NewProduct(name, price)
 
@@ -42,7 +42,7 @@ func TestNewProduct(t *testing.T) {
 
 	t.Run("create new product when price is negative", func(t *testing.T) {
 		name := "product"
-		price := -1000
+		price := -1000.0
 
 		p, err := NewProduct(name, price)
 
