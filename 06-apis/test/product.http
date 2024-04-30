@@ -20,3 +20,12 @@ Content-Type: application/json
   "price": 500
 }
 
+
+###
+
+DELETE http://localhost:8000/products/ae3ce024-6cba-41e0-a491-9ce904457d15 HTTP/1.1
+
+###
+
+GET http://localhost:8000/products?page=1&limit=10 HTTP/1.1
+
