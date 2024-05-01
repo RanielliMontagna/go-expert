@@ -28,4 +28,5 @@ DELETE http://localhost:8000/products/ae3ce024-6cba-41e0-a491-9ce904457d15 HTTP/
 ###
 
 GET http://localhost:8000/products?page=1&limit=10 HTTP/1.1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ1NjMzMDgsInN1YiI6IjExYjVjNzE5LWEyZmYtNDI0Ny05NmM3LTdhN2QyNDlhODUxYSJ9.4CvQlp3-d0p5xA0vFuT83g4uPjvO07imHdTSi0cXPdQ
 
