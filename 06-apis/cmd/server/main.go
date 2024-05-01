@@ -9,13 +9,30 @@ import (
 
 	"net/http"
 
+	_ "goexpert/apis/docs"
+
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 	"github.com/go-chi/jwtauth"
+	httpSwagger "github.com/swaggo/http-swagger"
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"
 )
 
+// @title           GoExpert API
+// @version         1.0
+// @description     Product API with authentication
+// @termsOfService  http://swagger.io/terms/
+
+// @contact.name   Ranielli Montagna
+// @contact.url    https://ranimontagna.com
+// @contact.email  raniellimontagna@hotmail.com
+
+// @host      localhost:8000
+// @BasePath  /
+// @securityDefinitions.apikey ApiKeyAuth
+// @in header
+// @name Authorization
 func main() {
 	configs, err := configs.LoadConfig(".env")
 	if err != nil {
@@ -53,6 +70,10 @@ func main() {
 
 	r.Post("/users", userHandler.Create)
 	r.Post("/users/generate-token", userHandler.GetJWT)
+
+	r.Get("/docs/*", httpSwagger.Handler(
+		httpSwagger.URL("http://localhost:8000/docs/doc.json"),
+	))
 
 	http.ListenAndServe(":8000", r)
 }
