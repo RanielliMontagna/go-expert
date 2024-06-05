@@ -3,6 +3,7 @@ module 08-events/fcutils
 go 1.22.3
 
 require (
+	github.com/rabbitmq/amqp091-go v1.10.0
 	github.com/stretchr/testify v1.9.0
 	github.com/tj/assert v0.0.3
 )
